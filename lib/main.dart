@@ -6,12 +6,14 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'FLUTTER PROJECT',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 251, 9, 9)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Project'),
@@ -44,24 +46,47 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Column(
-        children: [
-          Text("Pembimbing Akademik(PA)"),
-          Image.network(
-            width: 500,
-            height: 500,
-            "https://m.media-amazon.com/images/M/MV5BZDhlYmZhOGItMTRkOC00OTk5LTg1YmItMjhkOGVhNDljNzdiXkEyXkFqcGc@._V1_.jpg",
-          ),
-          Row(
-            children: [
-              Icon(Icons.person),
-              Text("Gede Adi Gunawan"),
-            ],
-          ),
-          Row(
-            children: [Icon(Icons.email), Text("Gede Adi Gunawan")],
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "Pembimbing Akademik (PA)",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: ClipOval(
+                child: Image.network(
+                  width: 200,
+                  height: 200,
+                  fit: BoxFit.cover,
+                  "https://m.media-amazon.com/images/M/MV5BZDhlYmZhOGItMTRkOC00OTk5LTg1YmItMjhkOGVhNDljNzdiXkEyXkFqcGc@._V1_.jpg",
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: const [
+                Icon(Icons.person),
+                SizedBox(width: 8),
+                Text("Gede Adi Gunawan"),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: const [
+                Icon(Icons.email),
+                SizedBox(width: 8),
+                Text("deadigunawan6@gmail.com"),
+              ],
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
